@@ -65,19 +65,20 @@ const showTooltip = commit => {
 
     tooltip.html(
         `
-            <div class="commit">
-                <img class="avatar" src="${gravatar(commit.author.email)}" alt="${commit.author.name}" title="${commit.author.name}" />
-                <div class="content">
-                    <h3 class="message">${commit.message}</h3>
-                    <p>
-                        <a href="https://www.github.com/${commit.author.name}" class="author">${commit.author.name}</a>
-                        on <span class="date">${humanizeDate(new Date(commit.date))}</span> -
-                        <a class="sha" href="${commit.sha}">${commit.sha.substr(0, 10)}</a>
-                    </p>
-                </div>
+        <div class="commit">
+            <img class="avatar" src="${gravatar(commit.author.email)}" alt="${commit.author.name}" title="${commit.author.name}" />
+            <div class="content">
+                <h3 class="message">${commit.message}</h3>
+                <p>
+                    <a href="https://www.github.com/${commit.author.name}" class="author">${commit.author.name}</a>
+                    on <span class="date">${humanizeDate(new Date(commit.date))}</span> -
+                    <a class="sha" href="${commit.sha}">${commit.sha.substr(0, 10)}</a>
+                </p>
             </div>
-        `
+        </div>
+    `
     );
+
     tooltip
         .style('left', `${left}px`)
         .style('top', d3.event.pageY + 16 + 'px')
@@ -90,7 +91,9 @@ const hideTooltip = () => {
     d3
         .select('.tooltip')
         .transition(t)
-        .on('end', this.remove)
+        .on('end', function end() {
+            this.remove();
+        })
         .style('opacity', 0);
 };
 
