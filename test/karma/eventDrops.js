@@ -1,4 +1,5 @@
 import eventDrops from '../../lib/eventDrops';
+import { defaultComponents as components } from '../../lib/config';
 
 describe('eventDrops', () => {
     it('should append a SVG element to given selection', () => {
@@ -101,7 +102,7 @@ describe('eventDrops', () => {
         configuration.date.calls.reset();
 
         // Manually initialize zoom function that is returned by `d3.zoom()`.
-        const zoomFunc = zoom.default(element, undefined, {x: d3.scaleTime()}, configuration, data);
+        const zoomFunc = zoom.default(element, undefined, {x: d3.scaleTime()}, configuration, components, data);
 
         // Make `requestAnimationFrame` call its callback immediately in this test.
         spyOn(window, 'requestAnimationFrame').and.callFake((callback) => callback());
