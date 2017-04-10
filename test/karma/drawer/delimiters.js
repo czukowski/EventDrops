@@ -47,4 +47,13 @@ describe('Delimiter drawer', () => {
 
         expect(svg.select('.extremum .maximum').text()).toBe('01 May 2014');
     });
+
+    it('should display formated dates using explicit format strings', () => {
+        scales.x.domain([new Date('2014-01-01'), new Date('2014-05-01')]);
+        object = new DelimitersComponent('◄ {0}', '{0} ►');
+        object.draw(svg, null, scales, configuration);
+
+        expect(svg.select('.extremum .minimum').text()).toBe('◄ 01 January 2014');
+        expect(svg.select('.extremum .maximum').text()).toBe('01 May 2014 ►');
+    });
 });
