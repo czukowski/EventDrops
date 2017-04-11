@@ -1,6 +1,6 @@
 const md5 = require('./md5');
 const repositories = require('json!./data.json');
-import * as d3 from 'd3/build/d3';
+import 'd3';
 
 import eventDrops from '../lib/eventDrops';
 
