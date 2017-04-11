@@ -113,6 +113,7 @@ Configurable values:
   - `maxScale`: The maximum scaling (zoom in), default to `Infinity`.
   - `mouseout`: event handler to execute when mouse leave a drop. Default: `() => {}`.
   - `zoomable`: *true* by default. Enable zoom-in/zoom-out and dragging handlers.
+  - `zoomDuration`: if greater than zero, zooming function uses transitions. Defaults to `50`.
   - `date`: function that returns the date from each data point when passing objects. Defaults to `d=>d`.
 
 ## Styling
