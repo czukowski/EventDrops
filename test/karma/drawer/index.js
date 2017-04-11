@@ -1,5 +1,5 @@
 import eventDrops from '../../../lib/eventDrops';
-import { defaultComponents } from '../../../lib/config';
+import { createDefaultComponents } from '../../../lib/config';
 import * as index from '../../../lib/drawer/index';
 
 describe('Main drawer', () => {
@@ -32,7 +32,8 @@ describe('Main drawer', () => {
                 },
                 metaballs: value
             };
-            index.default(svg, dimensions, scales, configuration, defaultComponents);
+            const components = createDefaultComponents(configuration);
+            index.default(svg, dimensions, scales, configuration, components);
         };
         let metaballs;
 
